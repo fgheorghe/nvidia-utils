@@ -1,0 +1,15 @@
+services:
+  nvidia-utils:
+    platform: linux/amd64
+    build:
+      context: .
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+    restart: always
