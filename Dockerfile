@@ -8,5 +8,7 @@ RUN apt-get install -y htop wget curl mc git nvtop bpytop btop glances
 
 RUN apt-get install -y python3.10 python3.10-venv python3.10-dev python3-pip pipx
 
-CMD tail -f /dev/null
+RUN pip install git+https://github.com/leftthomas/GPUView.git@master
+
+CMD gpuview run --host 0.0.0.0
 
