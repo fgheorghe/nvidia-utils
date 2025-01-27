@@ -13,3 +13,5 @@ services:
               capabilities: [gpu]
 
     restart: always
+    ports:
+        - ${PORT:-9988}:9988
