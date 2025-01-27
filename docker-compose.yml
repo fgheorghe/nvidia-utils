@@ -14,4 +14,4 @@ services:
 
     restart: always
     ports:
-        - ${PORT:-19988}:8080
+        - ${PORT:-9988}:8080
