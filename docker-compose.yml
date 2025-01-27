@@ -11,7 +11,7 @@ services:
             - driver: nvidia
               count: all
               capabilities: [gpu]
-
+    pid: "host"
     restart: always
     ports:
         - ${NVIDIA_PORT:-9988}:8080
