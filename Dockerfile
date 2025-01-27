@@ -8,7 +8,11 @@ RUN apt-get install -y htop wget curl mc git nvtop bpytop btop glances
 
 RUN apt-get install -y python3.10 python3.10-venv python3.10-dev python3-pip pipx
 
-RUN pip install git+https://github.com/leftthomas/GPUView.git@master
+COPY code /code
 
-CMD gpuview run --host 0.0.0.0
+WORKDIR /code
 
+RUN python3.10 -m venv venv
+RUN . venv/bin/activate && pip install -r requirements.txt
+
+CMD . venv/bin/activate && streamlit run nvidia.py
