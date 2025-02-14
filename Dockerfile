@@ -1,15 +1,15 @@
-FROM nvidia/cuda:12.4.1-runtime-ubuntu22.04
+FROM pytorch/pytorch:2.6.0-cuda12.4-cudnn9-devel
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get install -y software-properties-common && add-apt-repository ppa:deadsnakes/ppa &&  apt-get install -y htop wget curl mc git nvtop bpytop btop &&  apt-get install -y python3.10 python3.10-venv python3.10-dev python3-pip pipx nvidia-cuda-toolkit
+RUN apt-get install -y software-properties-common &&  apt-get install -y htop wget curl mc git nvtop bpytop btop 
 
 
 COPY code /code
 
 WORKDIR /code
 
-RUN python3.10 -m venv venv
+RUN python3 -m venv venv
 RUN . venv/bin/activate && pip install -r requirements.txt
 
 COPY entrypoint.sh /usr/local/bin/
