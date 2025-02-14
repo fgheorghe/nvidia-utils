@@ -2,7 +2,7 @@ FROM pytorch/pytorch:2.6.0-cuda12.4-cudnn9-devel
 
 ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update
-RUN apt-get install -y software-properties-common &&  apt-get install -y htop wget curl mc git nvtop bpytop btop 
+RUN apt-get install -y software-properties-common &&  apt-get install -y htop wget curl mc git nvtop bpytop btop python3-dev
 
 
 COPY code /code
