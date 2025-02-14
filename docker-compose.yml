@@ -16,4 +16,7 @@ services:
     ports:
         - ${NVIDIA_PORT:-9988}:8080
         - ${GLANCES_PORT:-61208}:61208
-
+    volumes:
+        - ${DATA_PATH}:/experiments:bind
+    environment:
+        - DATA_PATH=${DATA_PATH}
